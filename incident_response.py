@@ -6,11 +6,11 @@ print("[*] Initiating Automated Threat Hunt...")
 
 # TASK 1: Use subprocess to grep for "Failed password" in /var/log/titan_sim/auth_sim.log
 # Ensure you capture the output and convert it to text
-import subprocess
-import json
 
-result = subprocess.run('cat ~/var/log/titan_sim/auth_sim.log | grep Failed password',capture_output=True,text=True,shell=True)
-
+#result = subprocess.run('cat /var/log/titan_sim/auth_sim.log | grep Failed password',capture_output=True,text=True,shell=True)
+ 
+log_file = "/var/log/titan_sim/auth_sim.log"
+result = subprocess.run(f'cat {log_file} | grep "Failed password"', capture_output=True, text=True, shell=True)
 raw_output = result.stdout
 
 
